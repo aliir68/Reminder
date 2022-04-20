@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useIsFocused } from '@react-navigation/native'
 import { AppContext } from './contextComponent'
-import { Value } from 'react-native-reanimated'
+import { set, Value } from 'react-native-reanimated'
 
 
 const MenuBox = (props) =>{
@@ -81,8 +81,10 @@ console.log(textcity)
 useEffect(()=>{
 },[isFocused])
 
+const [show,setShow]=useState(false)
 
 const Erorrcity=()=>{
+    console.log("Erorrcity")
 if (i < 1) {
     setI(1)
    SetChengtext("karaj")
@@ -95,7 +97,6 @@ if (i < 1) {
 }
 }
 
-const [show,setShow]=useState(false)
 const City =()=>{
     setTimeout(() => {
         setShow(true)
@@ -119,9 +120,9 @@ const City =()=>{
 
 console.log(weather.cod)
 
-// setInterval(() => {
-//     setNewTime(new Date().toLocaleTimeString())
-// },1000)
+setInterval(() => {
+    setNewTime(new Date().toLocaleTimeString())
+},1000)
 
 useEffect(()=>{
     fetch("https://api.codebazan.ir/time-date/?json=fa")
@@ -136,15 +137,17 @@ useEffect(()=>{
 
 
 
-console.log()
+console.log(weather)
 var checkdate = new Date().getFullYear()+"/"+(new Date().getMonth()+1)+"/"+new Date().getDate()
 
     return(
         <View style={styles.container}>  
                 <ImageBackground source={require("../image/background.jpg")} style={{width : "100%",height : "100%",zIndex : 0}} blurRadius={5} resizeMode='stretch'/>
           
-              <City/> 
+{
+ weather.cod == 200 ? <City/> : City()
 
+}
             {
                 city == true ? 
                     <View style={{width : 110 ,height : 110,backgroundColor :"#7e72f5",position : "absolute",borderRadius : 10,right : "20%",top : "30%",alignItems :"center"}}>
