@@ -1,5 +1,5 @@
 import React,{useState,useContext, useEffect} from 'react'
-import { StyleSheet, View, Text,Pressable, TextInput,Switch } from 'react-native'
+import { StyleSheet, View, Text,Pressable, TextInput,Switch,ToastAndroid } from 'react-native'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import DatePicker from '@mohamadkh75/react-native-jalali-datepicker';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
@@ -239,7 +239,11 @@ var datepickernew= `${datenow[0]}/${datenow[1]}/${datenow[2]}`
                                 }}
                             >
                                    <MaterialIcons name="save-alt" size={25} color="#fff"/>
-                            </Pressable> : <View></View>
+                            </Pressable> : <Pressable onPress={()=>{ToastAndroid.show("مقادیر کامل وارد کنید", ToastAndroid.SHORT)}}
+                                style={styles.SaveBotton}>
+                                 <MaterialIcons name="save-alt" size={25} color="#fff"/>
+                            </Pressable>
+
                             }
                              
                              

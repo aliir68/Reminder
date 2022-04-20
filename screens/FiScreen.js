@@ -178,7 +178,12 @@ function addComma( str ) {
                 style={styles.plus}>
                     <AntDesign name='plus' color="#fff" size={15}/>
             </TouchableOpacity>
-
+            
+        {
+            dataarzeseaech.length != 0 ?
+                <Text style={{color : "#fff",fontSize :18,marginLeft : 20,marginRight : 20}}>Follow</Text>
+                :<View/>
+        }
     <FlatList style={{height : dataarzeseaech.length != 0 ? dataarzeseaech.length >= 2  ? "60%" : "25%"  : "0%" }}
         refreshControl={
         <RefreshControl

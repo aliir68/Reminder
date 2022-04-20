@@ -96,7 +96,6 @@ return(
             </View>
         </View>
 
-                           
           
                 <Pressable 
                 style={styles.SaveBotton}
@@ -115,7 +114,7 @@ return(
                        props.navigation.navigate("Repetition",{values : item})
       
                     }else {
-                        ToastAndroid.show("لطفا مقادیر را وارد کنید", ToastAndroid.SHORT)
+                        ToastAndroid.show("مقادیر کامل وارد کنید", ToastAndroid.SHORT)
                     }           
                }}
             >

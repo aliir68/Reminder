@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react"
-import {View,Text,TouchableOpacity,StyleSheet,Pressable,FlatList,ScrollView} from 'react-native'
+import {View,Text,TouchableOpacity,StyleSheet,Pressable,FlatList,ScrollView,Image} from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Foundation from 'react-native-vector-icons/Foundation'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -180,6 +180,12 @@ return(
             }}
                                         
             />
+            {
+                values.length == 0 ? 
+                            <View style={{width : "80%",height : "100%",margin : "20%",opacity : 0.3,  transform: [{ rotate: '320deg' }]}}>
+                                    <Image resizeMode="contain" style={{width : "100%",height : "100%"}} source={require("../image/felesh.png")}/>              
+                            </View> : <View/>
+            }
 
         <TouchableOpacity onPress={()=>{props.navigation.navigate('AddRepetition')}}
             style={styles.navBotten}>

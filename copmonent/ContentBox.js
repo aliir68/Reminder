@@ -404,16 +404,13 @@ console.log("akardon",data)
                             </View>
                             <ScrollView>
                                 <View style={{width :"95%",height :2,backgroundColor : "#899",alignSelf : "center",borderRadius : 5,marginTop : 5}}/>
-                                    <View style={styles.helpItem}>
-                                        <Text style={{fontSize : 15,color:"#fff"}}>حذف هه موارد</Text>
-                                        <Ionicons  name="md-trash-sharp" color="red" size={25}/>
-                                    </View>
+                       
                                     <View style={styles.helpItem}>
                                         <Text style={{fontSize : 15,color:"#fff"}}>اضافه کردن یادآوری</Text>
                                         <Foundation  name="plus" color="#fff" size={25}/>
                                     </View>
                                     <View style={styles.helpItem}>
-                                        <Text style={{fontSize : 15,color:"#fff"}}>نمایش پیام یاد اوری</Text>
+                                        <Text style={{fontSize : 15,color:"#fff"}}>نمایش پیام یادآوری</Text>
                                         <MaterialIcons  name="expand-more" color="#fff" size={25}/>
                                     </View>
                                     <View style={styles.helpItem}>
@@ -429,7 +426,7 @@ console.log("akardon",data)
                                         <MaterialIcons  name="close-fullscreen" color="red" size={25}/>
                                     </View>
                                     <View style={styles.helpItem}>
-                                        <Text style={{fontSize : 15,color:"#fff"}}>و در اخر صفحه مناسبت تاریخ کنونی</Text>
+                                        <Text style={{fontSize : 15,color:"#fff"}}> در اخر صفحه مناسبت تاریخ کنونی</Text>
                                     </View>
                                     <View style={styles.helpItem}>
                                         <Text style={{fontSize : 15,color:"#fff"}}>DISMISS</Text>
@@ -480,7 +477,6 @@ console.log("akardon",data)
                                     <View style={{flex : 5}} >
                                     <Text style={{fontSize : 20,color : "#000",alignSelf : "center",backgroundColor : "red",padding : 5,borderRadius : 5,marginTop : 10}}>هشدار</Text>
                                     <Text style={{fontSize : 18,color : "#000",alignSelf : "center",padding : 10}}>برای بهتر کار کردن برنامه باید دسترسی به فعالیت در پس زمینه را بدهید</Text>
-                                    <Text style={{fontSize : 15,color : "#000",alignSelf : "center",backgroundColor : "gold"}}>مصرف باتری زیاد نخواهد شد</Text>
                                     <Text style={{fontSize : 15,color : "#000",alignSelf : "center",padding : 10}}>درتنظیمات گذینه بدون محدودیت را انتخاب کنید</Text>
 
                                     </View>

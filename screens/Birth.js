@@ -242,6 +242,13 @@ setTimeout(() => {
             }}
                                        
             />
+
+{
+    dataValue.length == 0 ?
+    <View style={{width : "80%",height : "100%",margin : "20%",opacity : 0.3,  transform: [{ rotate: '320deg' }]}}>
+    <Image resizeMode="contain" style={{width : "100%",height : "100%"}} source={require("../image/felesh.png")}/>              
+</View> : <View/>
+}
         <TouchableOpacity onPress={()=>{props.navigation.navigate('AddBirth')}}
             style={styles.navBotten}>
            <Foundation name="plus" size={20} color="#ffffff"/>
