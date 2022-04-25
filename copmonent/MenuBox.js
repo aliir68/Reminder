@@ -120,9 +120,9 @@ const City =()=>{
 
 console.log(weather.cod)
 
-// setInterval(() => {
-//     setNewTime(new Date().toLocaleTimeString())
-// },1000)
+setInterval(() => {
+    setNewTime(new Date().toLocaleTimeString())
+},1000)
 
 useEffect(()=>{
     fetch("https://api.codebazan.ir/time-date/?json=fa")
