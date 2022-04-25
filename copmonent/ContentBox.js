@@ -192,8 +192,10 @@ const isFocused = useIsFocused()
 useEffect(()=>{
 },[isFocused])
 
-console.log("akardon",data)
-    
+var size = "50%"    
+
+
+
     return(
         <View style={styles.container}>
 
@@ -214,7 +216,7 @@ console.log("akardon",data)
 {
           notife == true ?
           <View style={{width : "80%",height : "85%",backgroundColor :"#5559",alignSelf : "center",borderRadius : 20}}>
-              <View style={{width  :"100%",height : "10%",backgroundColor :"#6669",flexDirection : "row",justifyContent : "space-between",padding : 10,alignItems : "center",borderTopLeftRadius :20,borderTopRightRadius : 20}}>
+              <View style={{width  :"100%",height : "15%",backgroundColor :"#6669",flexDirection : "row",justifyContent : "space-between",padding : 10,alignItems : "center",borderTopLeftRadius :20,borderTopRightRadius : 20}}>
                   <Text style={{fontSize : 18,color : "#fff"}}>{data.data.title}</Text>
                   <TouchableOpacity onPress={()=>{setNotife(false),setData([])}}>
                         <AntDesign name="close" size={20} color="red"/>
@@ -260,29 +262,36 @@ console.log("akardon",data)
 
                 {
                 akardon == true ? 
-                    <Animatable.View animation="fadeInRight" duration={800} style={{height :"60%",zIndex : 1,width : "15%",position : "absolute",backgroundColor : "#8889",borderTopRightRadius : 10,borderBottomRightRadius : 10}}>
-                        <TouchableOpacity style={{top : "50%"}}  hitSlop={{bottom : 100,left : 30,right : 50}}
+                    <Animatable.View animation="fadeInRight" duration={800} style={{height :"70%",zIndex : 1,width : "18%",position : "absolute",backgroundColor : "#8889",borderTopRightRadius : 10,borderBottomRightRadius : 10,top : "5%"}}>
+                        <TouchableOpacity style={{top : "50%",alignItems : "flex-end"}}  hitSlop={{bottom : 10,left : 50,right : 50}}
                             onPress={()=>{setAkardon(false)}}>
                                <Ionicons  name='ios-caret-back-sharp' size={20} color="#fff9"/>
                         </TouchableOpacity>
 
-                        <View style={{}}>
+                        <View style={{marginRight : "15%"}}>
                             <TouchableOpacity onPress={()=>{props.navigation.navigate("Repetition")}}
-                                 style={{alignSelf : "center"}}>
+                                 style={{alignSelf : "center",width : "100%",height : "28%",alignItems :"center"}}>
                                 <Fontisto name='pills' size={38} color="#fff9"/>
                                 <Text style={{fontSize : 10,color : "#fff",alignSelf :"center",marginTop : 5}}>یادآوری دارو</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity onPress={()=>{props.navigation.navigate("Birth")}}
-                                 style={{alignSelf : "center",marginTop : 10}}>
+                                 style={{alignSelf : "center",width : "100%",height : "28%",alignItems :"center"}}>
                                  <Entypo name="cake" size={40}  color="#fff9"/>
                                  <Text style={{fontSize : 10,color : "#fff",alignSelf :"center",marginTop : 5}}> روز تولد</Text>
                             </TouchableOpacity>
+
+                            <TouchableOpacity onPress={()=>{props.navigation.navigate("About")}}
+                                 style={{alignSelf : "center",width : "100%",height : "28%",alignItems :"center"}}>
+                                 <MaterialIcons name="contact-support" size= {40}  color="#fff9"/>
+                                 <Text style={{fontSize : 10,color : "#fff",alignSelf :"center",marginTop : 5}}>درباره</Text>
+                            </TouchableOpacity>
+                            
                         </View>
 
                     </Animatable.View> : 
                     <TouchableOpacity onPressOut={()=>{setAkardon(true)}}  hitSlop={{top : 30,right : 30,bottom : 30,left : 30,}}
-                        style={{width : 20,height : 150,backgroundColor :"#8889",borderTopRightRadius : 20,borderBottomRightRadius : 20,justifyContent : "center",zIndex : 1,position : "absolute"}}>
+                        style={{width : 20,height : 150,backgroundColor :"#8889",borderTopRightRadius : 20,borderBottomRightRadius : 20,justifyContent : "center",zIndex : 1,position : "absolute",top : "30%"}}>
                         <Ionicons name='ios-caret-back-sharp' size={20} color="#fff9"/>
                     </TouchableOpacity>
             }
@@ -452,7 +461,7 @@ console.log("akardon",data)
                }
                     
 
-                <View style={{width : "100%",height : "9%",backgroundColor : "#463762",borderTopLeftRadius : 15,
+                <View style={{width : "100%",height : 70,backgroundColor : "#463762",borderTopLeftRadius : 15,
                             borderTopRightRadius : 15,alignItems : "center",top : 0,overflow : "scroll"}}>
                                 <ScrollView style={{width : "100%",height : 50}}>
                                      <Text style={{color:"#fff",fontSize : 15,marginBottom : 3,alignSelf :"center"}}>{arr[0]}</Text>
@@ -473,8 +482,8 @@ console.log("akardon",data)
                 </Pressable>
                 {
                     battery === "false" ? 
-                        <View style={{flex : 1,justifyContent : "space-between",width : "50%", height : "45%", backgroundColor : "#fff9",position : "absolute",left : "25%", top : "10%",borderRadius : 10}}>
-                                    <View style={{flex : 5}} >
+                        <View style={{flex : 1,justifyContent : "space-between",width : "50%", height : 250, backgroundColor : "#fff9",position : "absolute",left : "25%", top : "10%",borderRadius : 10}}>
+                                    <View style={{flex : 6}} >
                                     <Text style={{fontSize : 20,color : "#000",alignSelf : "center",backgroundColor : "red",padding : 5,borderRadius : 5,marginTop : 10}}>هشدار</Text>
                                     <Text style={{fontSize : 18,color : "#000",alignSelf : "center",padding : 10}}>برای بهتر کار کردن برنامه باید دسترسی به فعالیت در پس زمینه را بدهید</Text>
                                     <Text style={{fontSize : 15,color : "#000",alignSelf : "center",padding : 10}}>درتنظیمات گذینه بدون محدودیت را انتخاب کنید</Text>
@@ -504,7 +513,6 @@ const styles = StyleSheet.create({
         width : "100%",
         backgroundColor  : "#170829",
         alignSelf : "center",   
-          
         justifyContent : "center"
     },
     itemBox : {
@@ -514,12 +522,18 @@ const styles = StyleSheet.create({
         paddingTop : 25,
         paddingBottom : 15,
         backgroundColor : "#463852",
+        borderWidth : 2,
+        borderColor : "#fff5",
+        borderRadius  : 10,
+        width : "95%",
+        alignSelf : "center",
+        marginBottom : 5
         
 
     },
     navBotten : {
         position : "absolute",
-        bottom : 70,
+        bottom : 80,
         left : 25,
         justifyContent : "center",
         alignItems : "center",

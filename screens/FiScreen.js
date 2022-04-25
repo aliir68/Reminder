@@ -158,8 +158,8 @@ function addComma( str ) {
     return(
         <View style={{flex : 1,backgroundColor : "#170829"}}>
             <View style={{flexDirection :"row",alignSelf :"center"}}>
-                <TextInput style={{width : "90%",backgroundColor :"#5555",borderRadius :5,}} placeholderTextColor="#fff" color="#fff" placeholder='Search' value={text} onChangeText={(value)=>{setText(value)}}/>   
-                <AntDesign style={{position :"absolute",left : "3%",top : "25%"}} name="search1" color="#fff" size={22}/>
+                <TextInput style={{width : "90%",backgroundColor :"#5555",borderRadius :5,}} placeholderTextColor="#fff" color="#fff" placeholder='جستجو' value={text} onChangeText={(value)=>{setText(value)}}/>   
+                <AntDesign style={{position :"absolute",right : "3%",top : "25%"}} name="search1" color="#fff" size={22}/>
             </View>
             <View style={{flexDirection : "row",width : "100%",height :40,backgroundColor :"#1115",justifyContent : "space-around",alignItems :"center"}}>
                 <TouchableOpacity onPress={()=>{props.navigation.navigate('FiusdScreen')}}>
@@ -236,7 +236,7 @@ function addComma( str ) {
     }}
                                 
     />
-      <Text style={{color : "#fff",fontSize :18,marginLeft : 20,marginRight : 20}}>ᗩᒪᒪ</Text>
+      <Text style={{color : "#fff",fontSize :18,marginLeft : 20,marginRight : 20}}>All</Text>
 
     <FlatList
               refreshControl={

@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React,{useState,useEffect} from 'react'
 import {NavigationContainer} from "@react-navigation/native"
 import {createStackNavigator} from "@react-navigation/stack"
-import {AddTodoScreen,MoreTodo,FiusdScreen,CoinScreen,CarScreen,AddRepetition,Repetition,Birth,AddBirth} from './screens';
+import {AddTodoScreen,MoreTodo,FiusdScreen,CoinScreen,CarScreen,AddRepetition,Repetition,Birth,AddBirth,About} from './screens';
 import {AppContext,BottomTab} from './copmonent'
 import ReactNativeAN from 'react-native-alarm-notification';
 import * as shamsi from 'shamsi';
@@ -386,6 +386,7 @@ setTimeout(() => {
               <Stack.Screen name="Repetition" component={Repetition} {...props}/>
               <Stack.Screen name="Birth" component={Birth} {...props}/>
               <Stack.Screen name="AddBirth" component={AddBirth} {...props}/>
+              <Stack.Screen name="About" component={About} {...props}/>
 
 
 

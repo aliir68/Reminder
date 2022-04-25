@@ -120,9 +120,9 @@ const City =()=>{
 
 console.log(weather.cod)
 
-setInterval(() => {
-    setNewTime(new Date().toLocaleTimeString())
-},1000)
+// setInterval(() => {
+//     setNewTime(new Date().toLocaleTimeString())
+// },1000)
 
 useEffect(()=>{
     fetch("https://api.codebazan.ir/time-date/?json=fa")
@@ -146,7 +146,6 @@ var checkdate = new Date().getFullYear()+"/"+(new Date().getMonth()+1)+"/"+new D
           
 {
  weather.cod == 200 ? <City/> : City()
-
 }
             {
                 city == true ? 
@@ -162,7 +161,7 @@ var checkdate = new Date().getFullYear()+"/"+(new Date().getMonth()+1)+"/"+new D
 
             <View style={{position : "absolute",top : "20%",left : 15,flexDirection : "column",alignSelf : "center" }}>
         
-            <TouchableOpacity style={{position  : "relative",top: -20,right :60 }} onPress={()=>{setHelp(true)}}>
+            <TouchableOpacity style={{position  : "relative",top: "-20%",right :"60%" }} onPress={()=>{setHelp(true)}}>
                 <AntDesign  style={{}} name="questioncircleo"  color="#fff"  size={13}/>
             </TouchableOpacity>
             

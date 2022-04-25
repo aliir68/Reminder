@@ -10,6 +10,8 @@ export * from './AddRepetition'
 export * from './Repetition'
 export * from './Birth'
 export * from './AddBirth'
+export * from './About'
+
 
 
 
