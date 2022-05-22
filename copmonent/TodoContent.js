@@ -4,6 +4,8 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import DatePicker from '@mohamadkh75/react-native-jalali-datepicker';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import {AppContext} from '../copmonent'
+import { Adivery } from "adivery";
+import { AdiveryBanner, Banner, LargeBanner, MediumRectangle } from 'adivery';
 
 const TodoContent = (props)=>{
     const {title, setTitleinput,description, setDescription,date,
@@ -12,6 +14,9 @@ const TodoContent = (props)=>{
     const [modal,setModal]=useState(false)
     const [isVisablePicker, setIsVisiblePricker] = useState(false);
  
+    const interstitialPlacement = "55c7e6aa-ac8e-44b6-b1b6-66fdb2737384";
+    Adivery.prepareInterstitialAd(interstitialPlacement);
+
     // موارد تایپ شده در این استیت ها ذخیره میشه
     const TitleChenged = (value) =>{
         setTitleinput(value)
@@ -33,6 +38,11 @@ const TodoContent = (props)=>{
 useEffect(()=>{
     setDate(datepickernew)
 },[])
+
+const adiveryAppId = "99dd12e3-9c38-4c6a-9c88-a886e5c60d1f";
+Adivery.configure(adiveryAppId);
+const placementBanner = "c9068ba9-161a-4370-8287-5a0673b40ef3"
+
 
 var datepickernew= `${datenow[0]}/${datenow[1]}/${datenow[2]}`
     return(
@@ -212,7 +222,9 @@ var datepickernew= `${datenow[0]}/${datenow[1]}/${datenow[2]}`
                            
                         
                                             
- 
+                           <View style={{flex : 3,alignItems : "center"}}>
+                                <AdiveryBanner placementId={placementBanner} bannerSize={Banner}/>
+                            </View>
                             {
                                 
                               title &&  description != '' ?
@@ -233,7 +245,13 @@ var datepickernew= `${datenow[0]}/${datenow[1]}/${datenow[2]}`
                                     setCheang(!cheang)
 
                                   
-                                   
+                                    setTimeout(() => {
+                                        Adivery.isLoaded(interstitialPlacement).then((isLoaded) => {
+                                            if (isLoaded) {
+                                            Adivery.showAd(interstitialPlacement);
+                                            }
+                                        });
+                                    }, 1000);
 
                                     
                                 }}

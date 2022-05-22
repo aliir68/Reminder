@@ -88,7 +88,7 @@ const Erorrcity=()=>{
 if (i < 1) {
     setI(1)
    SetChengtext("karaj")
-   ToastAndroid.show("نام شهر اشتباه است", ToastAndroid.SHORT)
+   console.log("note city")
     setTimeout(() => {
         setI(0)
     }, 1000);
@@ -120,9 +120,9 @@ const City =()=>{
 
 console.log(weather.cod)
 
-setInterval(() => {
-    setNewTime(new Date().toLocaleTimeString())
-},1000)
+// setInterval(() => {
+//     setNewTime(new Date().toLocaleTimeString())
+// },1000)
 
 useEffect(()=>{
     fetch("https://api.codebazan.ir/time-date/?json=fa")

@@ -13,6 +13,8 @@ import MakeItRain from 'react-native-make-it-rain';
 import RNAndroidSettingsTool from "react-native-android-settings-tool";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PushNotification,{} from 'react-native-push-notification';
+import { Adivery } from "adivery";
+import { AdiveryBanner, Banner, LargeBanner, MediumRectangle } from 'adivery';
 
 
 const ContentBox = (props) =>{
@@ -28,17 +30,20 @@ const ContentBox = (props) =>{
     const[item,setItem]=useState("false")
     const[data,setData]=useState([])
     const[notife,setNotife]=useState(false)
+    const[batterytime,setBatteryTime]=useState(true)
     const arr = []
 
 useEffect(()=>{
+
 setTimeout(() => {
     setChengg(true)
+    setBatteryTime(false)
 }, 2000);
 setTimeout(() => {
     setChengg(false)
 }, 2500);
 },[])
-    
+
 
 
 PushNotification.configure({
@@ -194,10 +199,26 @@ useEffect(()=>{
 
 var size = "50%"    
 
+const adiveryAppId = "99dd12e3-9c38-4c6a-9c88-a886e5c60d1f";
+Adivery.configure(adiveryAppId);
 
+const interstitialPlacement = "55c7e6aa-ac8e-44b6-b1b6-66fdb2737384";
+Adivery.prepareInterstitialAd(interstitialPlacement);
+
+useEffect(()=>{
+    setTimeout(() => {
+        console.log('runnnn')
+        Adivery.isLoaded(interstitialPlacement).then((isLoaded) => {
+            if (isLoaded) {
+              Adivery.showAd(interstitialPlacement);
+            }
+          });
+    }, 1600);
+},[])
 
     return(
         <View style={styles.container}>
+
 
 
             {/* <View style={{position : "absolute" ,left : "80%",zIndex : 1,backgroundColor :"red"}}>
@@ -459,7 +480,8 @@ var size = "50%"
                                 </ScrollView>
                             </Animatable.View> : <View/>
                }
-                    
+
+
 
                 <View style={{width : "100%",height : 70,backgroundColor : "#463762",borderTopLeftRadius : 15,
                             borderTopRightRadius : 15,alignItems : "center",top : 0,overflow : "scroll"}}>
@@ -481,7 +503,7 @@ var size = "50%"
 
                 </Pressable>
                 {
-                    battery === "false" ? 
+                    battery === "false" && batterytime === false ? 
                         <View style={{flex : 1,justifyContent : "space-between",width : "50%", height : 250, backgroundColor : "#fff9",position : "absolute",left : "25%", top : "10%",borderRadius : 10}}>
                                     <View style={{flex : 6}} >
                                     <Text style={{fontSize : 20,color : "#000",alignSelf : "center",backgroundColor : "red",padding : 5,borderRadius : 5,marginTop : 10}}>هشدار</Text>
@@ -501,6 +523,7 @@ var size = "50%"
                                     </View>
                         </View> : <View/>
                 }
+
         </View>
     )
 }

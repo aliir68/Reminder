@@ -3,11 +3,17 @@ import {View ,Text ,StyleSheet,TouchableOpacity,FlatList,TextInput,RefreshContro
 import axios from 'axios';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { CirclesLoader, TextLoader } from 'react-native-indicator';
+import { Adivery } from "adivery";
+import { AdiveryBanner, Banner, LargeBanner, MediumRectangle } from 'adivery';
 
 const CoinScreen = (props)=>{
 const [datausd,setDatausd]= useState([])
 const [cheng,setCheng]= useState(false)
 const [text,setText]= useState("")
+
+const adiveryAppId = "99dd12e3-9c38-4c6a-9c88-a886e5c60d1f";
+Adivery.configure(adiveryAppId);
+const placementBanner = "c9068ba9-161a-4370-8287-5a0673b40ef3"
 
 useEffect(()=>{
     setCheng(!cheng)
@@ -99,6 +105,11 @@ useEffect(()=>{
                     <TextLoader textStyle={{color :"#fff",left : 8}} text="Loading" />
         </View> :<View/>
             }
+            
+            <View style={{flex : 1,alignItems : "center",justifyContent:"flex-end"}}>
+                <AdiveryBanner placementId={placementBanner} bannerSize={Banner}/>
+            </View>
+            
         </View>
     )
 }

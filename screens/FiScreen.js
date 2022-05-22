@@ -5,6 +5,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import { CirclesLoader, TextLoader } from 'react-native-indicator';
 import { SvgCssUri } from 'react-native-svg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Adivery } from "adivery";
+import { AdiveryBanner, Banner, LargeBanner, MediumRectangle } from 'adivery';
 
 const FiScreen = (props)=>{
     const [datausd,setDatausd] =useState('')
@@ -15,7 +17,13 @@ const FiScreen = (props)=>{
     const [itemm,setItem]= useState([])
     const [showadd,setShowadd]= useState(false)
     const [name,setName]= useState('')
-  
+
+
+    const adiveryAppId = "99dd12e3-9c38-4c6a-9c88-a886e5c60d1f";
+    Adivery.configure(adiveryAppId);
+    const placementBanner = "c9068ba9-161a-4370-8287-5a0673b40ef3"
+    
+
 useEffect(()=>{
     setTimeout(() => {
         setCheng(!cheng)
@@ -88,20 +96,7 @@ useEffect(()=>{
 },[cheng])
 
 // کل ارز های دیجیتال
- useEffect(()=>{
-            // fetch(`https://api.nomics.com/v1/currencies/ticker?key=55b206eb3006b1562709236b3fb04f1492bce852&interval=1d,7d&per-page=7&page=1`)
-            // .then((res)=> res.json())
-            // .then((data)=> {
-              
-            //         setDataarze(data)
-            // }
-            
-            // )
-            // .catch((res)=>{
-            //     console.log("Error",res)
-            // })
-
-            
+ useEffect(()=>{         
     axios({
         url : "https://api.nomics.com/v1/currencies/ticker?key=55b206eb3006b1562709236b3fb04f1492bce852&interval=1d,7d&per-page=100&page=1",
         method : "GET",
@@ -113,8 +108,6 @@ useEffect(()=>{
 
         console.log("Eroooooor",err)
             })
- 
-  
  },[])
 
 // تبدیل گیومه دلار به نقطه
@@ -173,17 +166,24 @@ function addComma( str ) {
                 </TouchableOpacity>
                       <Text style={[styles.textoption,{backgroundColor :"#5559",}]}>ارز دیجیتال</Text>
             </View>
+
+            <View style={{flex : 1,justifyContent : "center",alignItems : "center",height :"100%",padding : "10%"}}>
+                   <AdiveryBanner  placementId={placementBanner} bannerSize={Banner}/>
+            </View>
+            
             <TouchableOpacity 
                 onPress={()=>{setShowadd(true)}}
                 style={styles.plus}>
                     <AntDesign name='plus' color="#fff" size={15}/>
             </TouchableOpacity>
+
             
         {
             dataarzeseaech.length != 0 ?
                 <Text style={{color : "#fff",fontSize :18,marginLeft : 20,marginRight : 20}}>Follow</Text>
                 :<View/>
         }
+        
     <FlatList style={{height : dataarzeseaech.length != 0 ? dataarzeseaech.length >= 2  ? "60%" : "25%"  : "0%" }}
         refreshControl={
         <RefreshControl
@@ -199,13 +199,13 @@ function addComma( str ) {
     let rial = addComma(String(aaa))
     return (
         <View style={{flex : 1}}>
-
+            
+ 
         {/* <TouchableOpacity onPress={()=>{setShowmore(true),setDatashowmore(item)}}> */}
                  <View style={styles.item}>
                      <View>
-     
                      </View>
-                     <View style={{padding : 10,flex : 1}}>
+                     <View style={{padding : 10,flex : 1}}>                   
                          <View style={{flexDirection :"row-reverse"}}>
                              <Text style={{fontSize : 20,color : "gold",}}>{item.name}</Text>
                              <Text style={{fontSize : 15,color : "gray",marginRight : 5,backgroundColor : "#5555",borderRadius : 5,padding : 2}}>{item.id}</Text>
@@ -257,9 +257,6 @@ function addComma( str ) {
 
    {/* <TouchableOpacity onPress={()=>{setShowmore(true),setDatashowmore(item)}}> */}
             <View style={styles.item}>
-                <View>
-
-                </View>
                 <View style={{padding : 10,flex : 1}}>
                     <View style={{flexDirection :"row-reverse"}}>
                         <Text style={{fontSize : 20,color : "gold",}}>{item.name}</Text>
@@ -281,7 +278,7 @@ function addComma( str ) {
                 </View>
             </View>
    {/* </TouchableOpacity> */}
-
+            
                 </View>
         
             )
@@ -317,6 +314,7 @@ function addComma( str ) {
     </View>
 </View> : <View/>
 }
+
         </View>
     )
 }

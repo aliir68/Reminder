@@ -5,6 +5,8 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import NumericInput from 'react-native-numeric-input'
 import {Picker} from '@react-native-picker/picker';
 import { AppContext } from '../copmonent/contextComponent'
+import { Adivery } from "adivery";
+import { AdiveryBanner, Banner, LargeBanner, MediumRectangle } from 'adivery';
 
 const AddRepetition = (props) => {
     const {datenow}=useContext(AppContext)
@@ -13,6 +15,9 @@ const AddRepetition = (props) => {
     const [description,setDescription]=useState("")
     const [time,setTime]=useState(0)
     const [type,settype]=useState("minute")
+
+    const interstitialPlacement = "55c7e6aa-ac8e-44b6-b1b6-66fdb2737384";
+    Adivery.prepareInterstitialAd(interstitialPlacement);
 
 switch (type) {
     case "minute":
@@ -112,6 +117,15 @@ return(
                             newdate : datenow[0]+"/"+datenow[1]+"/"+datenow[2]
                         }
                        props.navigation.navigate("Repetition",{values : item})
+
+                       setTimeout(() => {
+                        Adivery.isLoaded(interstitialPlacement).then((isLoaded) => {
+                            if (isLoaded) {
+                            Adivery.showAd(interstitialPlacement);
+                            }
+                        });
+                    }, 1000);
+
       
                     }else {
                         ToastAndroid.show("مقادیر کامل وارد کنید", ToastAndroid.SHORT)

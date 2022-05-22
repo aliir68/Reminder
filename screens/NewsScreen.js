@@ -3,12 +3,18 @@ import {View ,Text ,StyleSheet,TouchableOpacity,FlatList,Image,Linking,TextInput
 import axios from 'axios';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { CirclesLoader, TextLoader } from 'react-native-indicator';
+import { Adivery } from "adivery";
+import { AdiveryBanner, Banner, LargeBanner, MediumRectangle } from 'adivery';
 
 const NewsScreen = (props)=>{
 const [datanew,setDatanew]= useState([])
 const [cheng,setCheng]= useState(false)
 const [page,setPage]= useState(1)
 const [text,setText]= useState("")
+
+const adiveryAppId = "99dd12e3-9c38-4c6a-9c88-a886e5c60d1f";
+Adivery.configure(adiveryAppId);
+const placementBanner = "c9068ba9-161a-4370-8287-5a0673b40ef3"
 
 
 useEffect(()=>{
@@ -60,6 +66,11 @@ setTimeout(() => {
                      <AntDesign style={{}}  name="search1" color="#fff" size={22}/>
                 </TouchableOpacity>  
             </View>
+
+            <View style={{flex : 1,justifyContent : "center",alignItems : "center",padding : "8%"}}>
+                   <AdiveryBanner  placementId={placementBanner} bannerSize={Banner}/>
+            </View>
+
             <FlatList
                           refreshControl={
                             <RefreshControl

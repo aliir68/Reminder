@@ -8,7 +8,8 @@ import {AppContext} from '../copmonent'
 import {launchImageLibrary} from 'react-native-image-picker';
 import {Picker} from '@react-native-picker/picker';
 import { TextInputMask } from 'react-native-masked-text'
-
+import { Adivery } from "adivery";
+import { AdiveryBanner, Banner, LargeBanner, MediumRectangle } from 'adivery';
 
 
 const AddBirth =(props)=>{
@@ -24,7 +25,9 @@ const AddBirth =(props)=>{
     const [image,setImage] = useState('')
     const [month,setMonth] = useState('')
  
-
+    const interstitialPlacement = "55c7e6aa-ac8e-44b6-b1b6-66fdb2737384";
+    Adivery.prepareInterstitialAd(interstitialPlacement);
+    
 console.log(time.toLocaleTimeString())
 //   const focus = () => {
 //     if (!dateInput) {
@@ -346,6 +349,14 @@ var datepickernew= `${datenow[0]}/${datenow[1]}/${datenow[2]}`
                                         date : switchAlarm === true ? date : "یادآوری نمی شود"
                                     }
                                     props.navigation.navigate("Birth", {values : data})
+
+                                    setTimeout(() => {
+                                        Adivery.isLoaded(interstitialPlacement).then((isLoaded) => {
+                                            if (isLoaded) {
+                                            Adivery.showAd(interstitialPlacement);
+                                            }
+                                        });
+                                    }, 1000);
 
                                 }}
                             >
