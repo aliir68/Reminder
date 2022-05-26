@@ -94,32 +94,32 @@ console.log("Search",Search)
                         <View style={{flex : 1}}>
                             <View style={styles.item}>
                                 <View style={{justifyContent : "space-around",flexDirection  :"row",}}>
+                                    <Text style={{fontSize : 20,color : "gold"}}>{datausd.buy_usd.title}</Text>
+                                    <Text style={{fontSize : 23,color : "#fff",marginLeft : 30,textAlign :"left"}}>{datausd.buy_usd.price}﷼</Text>
+                                </View>
+                                <View style={{}}>
+                                    <Text style={{fontSize : 20,color : "#FFF",textAlign :"left",marginLeft : "10%"}}>{datausd.buy_usd.jdate}</Text> 
+                                </View>
+                                <View style={{justifyContent : "space-around",flexDirection  :"row",}}>
+                                    <Text style={{fontSize : 20,color : "gold"}}>{datausd.sell_usd.title}</Text>
+                                    <Text style={{fontSize : 23,color : "#fff",marginLeft : 30,textAlign :"left"}}>{datausd.sell_usd.price}﷼</Text>
+                                </View>
+                            </View> 
+
+                            <View style={styles.item}>
+                                <View style={{justifyContent : "space-around",flexDirection  :"row",}}>
                                     <Text style={{fontSize : 20,color : "gold"}}>{datausd.buy_aed.title}</Text>
                                     <Text style={{fontSize : 23,color : "#fff",marginLeft : 30,textAlign :"left"}}>{datausd.buy_aed.price}﷼</Text>
                                 </View>
                                 <View style={{}}>
-                                    <Text style={{fontSize : 20,color : "#FFF",textAlign :"left"}}>{datausd.buy_aed.jdate}</Text> 
+                                    <Text style={{fontSize : 20,color : "#FFF",textAlign :"left",marginLeft : "10%"}}>{datausd.buy_aed.jdate}</Text> 
                                 </View>
                                 <View style={{justifyContent : "space-around",flexDirection  :"row",}}>
                                     <Text style={{fontSize : 20,color : "gold"}}>{datausd.sell_aed.title}</Text>
                                     <Text style={{fontSize : 23,color : "#fff",marginLeft : 30,textAlign :"left"}}>{datausd.sell_aed.price}﷼</Text>
                                 </View>
 
-                            </View>
-
-                            <View style={styles.item}>
-                                <View style={{justifyContent : "space-around",flexDirection  :"row",}}>
-                                    <Text style={{fontSize : 20,color : "gold"}}>{datausd.buy_usd.title}</Text>
-                                    <Text style={{fontSize : 23,color : "#fff",marginLeft : 30,textAlign :"left"}}>{datausd.buy_usd.price}﷼</Text>
-                                </View>
-                                <View style={{}}>
-                                    <Text style={{fontSize : 20,color : "#FFF",textAlign :"left"}}>{datausd.buy_usd.jdate}</Text> 
-                                </View>
-                                <View style={{justifyContent : "space-around",flexDirection  :"row",}}>
-                                    <Text style={{fontSize : 20,color : "gold"}}>{datausd.sell_usd.title}</Text>
-                                    <Text style={{fontSize : 23,color : "#fff",marginLeft : 30,textAlign :"left"}}>{datausd.sell_usd.price}﷼</Text>
-                                </View>
-                            </View>    
+                            </View>   
 
                             <View style={styles.item}>
                                 <View style={{justifyContent : "space-around",flexDirection  :"row",}}>
@@ -127,7 +127,7 @@ console.log("Search",Search)
                                     <Text style={{fontSize : 23,color : "#fff",marginLeft : 30,textAlign :"left"}}>{datausd.buy_eur.price}﷼</Text>
                                 </View>
                                 <View style={{}}>
-                                    <Text style={{fontSize : 20,color : "#FFF",textAlign :"left"}}>{datausd.buy_eur.jdate}</Text> 
+                                    <Text style={{fontSize : 20,color : "#FFF",textAlign :"left",marginLeft : "10%"}}>{datausd.buy_eur.jdate}</Text> 
                                 </View>
                                 <View style={{justifyContent : "space-around",flexDirection  :"row",}}>
                                     <Text style={{fontSize : 20,color : "gold"}}>{datausd.sell_eur.title}</Text>
