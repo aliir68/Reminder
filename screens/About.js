@@ -64,7 +64,7 @@ setTimeout(() => {
                 <View style={{flex : 3,alignItems :"center"}}>
                     <Image resizeMode="contain" style={{width : 150,height : 150}} source={require("../image/rrr.png")}/>
                     <Text style={{fontSize : 25,fontWeight : "600",color : "#fff",alignSelf : "center",marginTop : "2%"}}>یادآوری</Text>
-                    <Text style={{fontSize : 15,fontWeight : "600",color : "#fff",alignSelf : "center"}}>V2.5.0</Text>
+                    <Text style={{fontSize : 15,fontWeight : "600",color : "#fff",alignSelf : "center"}}>V2.6.1</Text>
                 </View>
 
                 <View style={{marginTop : "12%",borderWidth : 3,borderColor : "#fff3",borderRadius  : 10,flex : 6,}}>

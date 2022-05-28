@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {View ,Text ,StyleSheet,TouchableOpacity,FlatList,TextInput,RefreshControl} from 'react-native'
+import {View ,Text ,StyleSheet,TouchableOpacity,FlatList,TextInput,RefreshControl,Linking} from 'react-native'
 import axios from 'axios';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { CirclesLoader, TextLoader } from 'react-native-indicator';
@@ -134,6 +134,10 @@ console.log("Search",Search)
                                     <Text style={{fontSize : 23,color : "#fff",marginLeft : 30,textAlign :"left"}}>{datausd.sell_eur.price}﷼</Text>
                                 </View>
                         </View>
+                        <TouchableOpacity   onPress={()=>{Linking.openURL("https://www.tgju.org/sana")}}
+                             style={{alignItems : "center",marginTop : 15,backgroundColor : "#4588",padding : 5,width : "90%",alignSelf : "center",borderRadius : 10}}>
+                            <Text style={{color : "#fff"}}>برای رهگیری دقیق تر ارز از سامانه سنا کلیک کنید</Text>
+                        </TouchableOpacity>
                 </View> :<View/>
                     }
                 {/* )

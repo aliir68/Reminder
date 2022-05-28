@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {View ,Text ,StyleSheet,TouchableOpacity,FlatList,TextInput,RefreshControl} from 'react-native'
+import {View ,Text ,StyleSheet,TouchableOpacity,FlatList,TextInput,RefreshControl,Linking} from 'react-native'
 import axios from 'axios';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { CirclesLoader, TextLoader } from 'react-native-indicator';
@@ -64,8 +64,8 @@ useEffect(()=>{
                     <TouchableOpacity onPress={()=>{props.navigation.navigate('FiScreen')}}>
                           <Text style={[styles.textoption,{backgroundColor :"#5553",}]}>ارز دیجیتال</Text>
                     </TouchableOpacity>            
-            </View>      
-            
+            </View>   
+           
     <FlatList
                   refreshControl={
                     <RefreshControl
@@ -98,6 +98,15 @@ useEffect(()=>{
             }}
                                        
             />
+            <View style={{width : "95%",height : 1,backgroundColor : "#fff",borderRadius : 5,alignSelf : "center"}}/>
+                        <TouchableOpacity   onPress={()=>{Linking.openURL("https://www.tgju.org/sana")}}
+                             style={{alignItems : "center",marginTop : "2%",marginBottom : "3%",backgroundColor : "#4588",padding : 5,width : "90%",alignSelf : "center",borderRadius : 10}}>
+                            <Text style={{color : "#fff"}}>برای رهگیری دقیق تر طلا سکه از سامانه سنا کلیک کنید</Text>
+                        </TouchableOpacity>
+                        
+                        <View style={{alignItems : "center",justifyContent:"flex-end"}}>
+                          <AdiveryBanner placementId={placementBanner} bannerSize={Banner}/>
+                        </View>  
             {
     datausd == "" ?
             <View style={{position : "absolute",top : "44%",right : "42%",alignItems :"center"}}>
@@ -106,9 +115,7 @@ useEffect(()=>{
         </View> :<View/>
             }
             
-            <View style={{flex : 1,alignItems : "center",justifyContent:"flex-end"}}>
-                <AdiveryBanner placementId={placementBanner} bannerSize={Banner}/>
-            </View>
+
             
         </View>
     )
