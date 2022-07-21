@@ -96,8 +96,8 @@ setTimeout(() => {
                                        <Text style={{color : "#fff",marginTop :5,fontSize : 15}}>{item.description}</Text>
                                  </ScrollView>
                                     <View style={{flexDirection : "row-reverse",justifyContent : "space-between",marginBottom : 5}}>
-                                        <TouchableOpacity onPress={()=>{Linking.openURL(item.url)}} style={{width :60,height : 22,marginLeft : "50%",}}>
-                                            <Text style={{color : "aqua",textAlign :"center"}}>برو به منبع</Text>
+                                        <TouchableOpacity onPress={()=>{Linking.openURL(item.url)}} style={{width :60,height : 22,marginLeft : "50%",backgroundColor :"#a57baa",borderRadius :5}}>
+                                            <Text style={{color : "#fff",textAlign :"center"}}>منبع</Text>
                                         </TouchableOpacity>
                                        <Text style={{alignSelf :"flex-end",color : "#fff",width : 100,textAlign :"center",}}>{item.date}</Text>
                                     </View>

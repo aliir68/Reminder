@@ -39,7 +39,7 @@ useEffect(()=>{
     })
 },[cheng])
 
-console.log(cheng)
+// console.log(cheng)
 // گرفتن شهر برای اب هواا
 useEffect(() => {
     const current = async () => {
@@ -76,7 +76,7 @@ const SetChengtext = (Value)=>{
 
 }
 
-console.log(textcity)
+// console.log(textcity)
 
 useEffect(()=>{
 },[isFocused])
@@ -93,7 +93,6 @@ if (i < 1) {
         setI(0)
     }, 1000);
 }else{
-
 }
 }
 
@@ -101,7 +100,7 @@ const City =()=>{
     setTimeout(() => {
         setShow(true)
     }, 2500);
-    console.log("hh",show)
+    // console.log("hh",show)
 
     return(
         show == true ? 
@@ -118,35 +117,44 @@ const City =()=>{
     )
 }
 
-console.log(weather.cod)
+// console.log(weather.cod)
 
 setInterval(() => {
     setNewTime(new Date().toLocaleTimeString())
 },1000)
 
+// useEffect(()=>{
+//     fetch("https://api.codebazan.ir/time-date/?json=fa")
+//     .then((res)=> res.json())
+//     .then((data)=> {
+//         let fetch = data.result.fadate
+//         let Shanbe = fetch.split(",")
+//         setFetchData(Shanbe)
+//     })
+
+// },[])
+
 useEffect(()=>{
-    fetch("https://api.codebazan.ir/time-date/?json=fa")
+    fetch("http://api.codebazan.ir/time-date/?json=all")
     .then((res)=> res.json())
     .then((data)=> {
-        let fetch = data.result.fadate
-        let Shanbe = fetch.split(",")
-        setFetchData(Shanbe)
+        setFetchData(data.result)
     })
 
 },[])
 
 
 
-console.log(weather)
+// console.log(fetchData)
 var checkdate = new Date().getFullYear()+"/"+(new Date().getMonth()+1)+"/"+new Date().getDate()
 
     return(
         <View style={styles.container}>  
-                <ImageBackground source={require("../image/background.jpg")} style={{width : "100%",height : "100%",zIndex : 0}} blurRadius={5} resizeMode='stretch'/>
+                <ImageBackground source={require("../image/background.jpg")} style={{width : "100%",height : "110%",zIndex : 0}} blurRadius={5} resizeMode='stretch'/>
           
-{
- weather.cod == 200 ? <City/> : City()
-}
+            {
+            weather.cod == 200 ? <City/> : City()
+            }
             {
                 city == true ? 
                     <View style={{width : 110 ,height : 110,backgroundColor :"#7e72f5",position : "absolute",borderRadius : 10,right : "20%",top : "30%",alignItems :"center"}}>
@@ -161,14 +169,15 @@ var checkdate = new Date().getFullYear()+"/"+(new Date().getMonth()+1)+"/"+new D
 
             <View style={{position : "absolute",top : "20%",left : 15,flexDirection : "column",alignSelf : "center" }}>
         
-            <TouchableOpacity style={{position  : "relative",top: "-20%",right :"60%" }} onPress={()=>{setHelp(true)}}>
+            <TouchableOpacity style={{position  : "relative",top: "-20%",right :"90%" }} onPress={()=>{setHelp(true)}}>
                 <AntDesign  style={{}} name="questioncircleo"  color="#fff"  size={13}/>
             </TouchableOpacity>
             
-                <View style={{flexDirection : "column",alignItems : "flex-start",marginTop : -10}}>
+                <View style={{flexDirection : "column",alignItems : "flex-start",marginTop : -18}}>
                     <Text style={{color:'#fff',fontSize : 14}}>{datenow[0]+"/"+datenow[1]+"/"+datenow[2]}</Text>
                     <Text style={{color:'#fff',fontSize : 14,marginTop : 5}}>{checkdate}</Text>
-                    <Text style={{color:'#fff',fontSize : 14,marginTop : 5}}>{fetchData[1]}</Text>
+                    <Text style={{color:'#fff',fontSize : 14,marginTop : 5}}>{fetchData.dateen}</Text>
+                    <Text style={{color:'#fff',fontSize : 14,marginTop : 5}}>{fetchData.datefa}</Text>
                     <Text style={{color:'#fff',fontSize : 14,marginTop : 5}}>{newTime}</Text>
                 </View>
                 
@@ -184,23 +193,19 @@ var checkdate = new Date().getFullYear()+"/"+(new Date().getMonth()+1)+"/"+new D
 
 const styles = StyleSheet.create({
     container : {
-        // flex : 1,
         flexDirection : "row",
         width : "100%",
         backgroundColor  : "#170829",
         alignSelf : "center",
-        borderRadius  : 60,
         justifyContent : "flex-start",
         paddingBottom :20,
-        height : 160,
-        zIndex : 1
+        height : 150,
+        zIndex : 1,
+        borderBottomLeftRadius  : 10,
+        borderBottomRightRadius  : 10,
+        overflow :"hidden"
+        
     },
-    remainBox:{
-        fontWeight : "bold",
-        fontSize : 15,
-        marginLeft : 10
-    },
-
     itemBox : {
         flexDirection : "row",
     },

@@ -137,8 +137,8 @@ android {
         applicationId "com.todo_app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 11
-        versionName "2.6.1"
+        versionCode 12
+        versionName "2.7.4"
         ndk {
             abiFilters "armeabi-v7a", "x86"
        }

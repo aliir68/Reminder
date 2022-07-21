@@ -8,6 +8,7 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import {AppContext} from '../copmonent'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import * as Animatable from 'react-native-animatable';
 import MakeItRain from 'react-native-make-it-rain';
 import RNAndroidSettingsTool from "react-native-android-settings-tool";
@@ -215,6 +216,7 @@ useEffect(()=>{
           });
     }, 1600);
 },[])
+console.log(dataValue)
 
     return(
         <View style={styles.container}>
@@ -290,22 +292,28 @@ useEffect(()=>{
                         </TouchableOpacity>
 
                         <View style={{marginRight : "15%"}}>
+                            <TouchableOpacity onPress={()=>{props.navigation.navigate("Note")}}
+                                 style={{alignSelf : "center",width : "100%",height : "22%",alignItems :"center"}}>
+                                <SimpleLineIcons name='note' size={37} color="#fff9"/>
+                                <Text style={{fontSize : 10,color : "#fff",alignSelf :"center",marginTop : 5}}>یاداشت</Text>
+                            </TouchableOpacity>
+
                             <TouchableOpacity onPress={()=>{props.navigation.navigate("Repetition")}}
-                                 style={{alignSelf : "center",width : "100%",height : "28%",alignItems :"center"}}>
+                                 style={{alignSelf : "center",width : "100%",height : "22%",alignItems :"center"}}>
                                 <Fontisto name='pills' size={38} color="#fff9"/>
                                 <Text style={{fontSize : 10,color : "#fff",alignSelf :"center",marginTop : 5}}>یادآوری دارو</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity onPress={()=>{props.navigation.navigate("Birth")}}
-                                 style={{alignSelf : "center",width : "100%",height : "28%",alignItems :"center"}}>
+                                 style={{alignSelf : "center",width : "100%",height : "22%",alignItems :"center"}}>
                                  <Entypo name="cake" size={40}  color="#fff9"/>
                                  <Text style={{fontSize : 10,color : "#fff",alignSelf :"center",marginTop : 5}}> روز تولد</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity onPress={()=>{props.navigation.navigate("About")}}
-                                 style={{alignSelf : "center",width : "100%",height : "28%",alignItems :"center"}}>
-                                 <MaterialIcons name="contact-support" size= {40}  color="#fff9"/>
-                                 <Text style={{fontSize : 10,color : "#fff",alignSelf :"center",marginTop : 5}}>درباره</Text>
+                                 style={{alignSelf : "center",width : "100%",height : "22%",alignItems :"center"}}>
+                                 <MaterialIcons name="contact-support" size= {42}  color="#fff9"/>
+                                 <Text style={{fontSize : 10,color : "#fff",alignSelf :"center",marginTop : 5}}>ارتباط</Text>
                             </TouchableOpacity>
                             
                         </View>
@@ -316,17 +324,17 @@ useEffect(()=>{
                         <Ionicons name='ios-caret-back-sharp' size={20} color="#fff9"/>
                     </TouchableOpacity>
             }
-            
+           
             <FlatList style={{}}
-          data={dataValue}
+          data={[...dataValue].reverse()}
           keyExtractor={dataValue => dataValue.id}
           renderItem={({ item,index }) => {
-              console.log("kkk",item.showTimeItem)
+            //   console.log("kkk",item.showTimeItem)
             return (
             
             <View>
                 {
-                    dataValue[index].done != true ?
+                    item.done != true ?
                     <Animatable.View animation="flipInY"    style={styles.itemBox}>
                             <View style={{flexDirection : "row"}}>
                                 
@@ -420,6 +428,12 @@ useEffect(()=>{
           }}
                                      
           />
+                      {
+                dataValue.length == 0 ? 
+                            <View style={{width : "80%",height : "50%",margin : "10%",opacity : 0.3,  transform: [{ rotate: '320deg' }]}}>
+                                    <Image resizeMode="contain" style={{width : "100%",height : "100%"}} source={require("../image/felesh.png")}/>              
+                            </View> : <View/>
+            }
    
         <FuncAlert />  
                <MoreMassege/>
@@ -524,6 +538,7 @@ useEffect(()=>{
                         </View> : <View/>
                 }
 
+
         </View>
     )
 }
@@ -536,7 +551,8 @@ const styles = StyleSheet.create({
         width : "100%",
         backgroundColor  : "#170829",
         alignSelf : "center",   
-        justifyContent : "center"
+        justifyContent : "center",
+        marginTop : 20
     },
     itemBox : {
         flexDirection : "row",

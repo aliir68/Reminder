@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React,{useState,useEffect} from 'react'
 import {NavigationContainer} from "@react-navigation/native"
 import {createStackNavigator} from "@react-navigation/stack"
-import {AddTodoScreen,MoreTodo,FiusdScreen,CoinScreen,CarScreen,AddRepetition,Repetition,Birth,AddBirth,About} from './screens';
+import {AddTodoScreen,MoreTodo,FiusdScreen,AddRepetition,Repetition,Birth,AddBirth,About,Note} from './screens';
 import {AppContext,BottomTab} from './copmonent'
 import ReactNativeAN from 'react-native-alarm-notification';
 import * as shamsi from 'shamsi';
@@ -128,7 +128,7 @@ const AddData = ()=>{
           console.log("alarmNotifData",alarmNotifData.id)
           let DATE = new Date()
     
-          // console.log("Miladi===============>",i.time)
+          console.log("Miladi===============>",fireDate)
 
         }
 
@@ -380,13 +380,12 @@ setTimeout(() => {
               <Stack.Screen name="AddTodo" component={AddTodoScreen} />
               <Stack.Screen name="MoreTodo" component={MoreTodo} />
               <Stack.Screen name="FiusdScreen" component={FiusdScreen} {...props}/>
-              <Stack.Screen name="coinScreen" component={CoinScreen} {...props}/>
-              <Stack.Screen name="carScreen" component={CarScreen} {...props}/>
               <Stack.Screen name="AddRepetition" component={AddRepetition} {...props}/>
               <Stack.Screen name="Repetition" component={Repetition} {...props}/>
               <Stack.Screen name="Birth" component={Birth} {...props}/>
               <Stack.Screen name="AddBirth" component={AddBirth} {...props}/>
               <Stack.Screen name="About" component={About} {...props}/>
+              <Stack.Screen name="Note" component={Note} {...props}/>
 
 
 

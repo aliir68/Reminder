@@ -65,12 +65,12 @@ console.log("Search",Search)
             </View>
            <View style={{flexDirection : "row",width : "100%",height :40,backgroundColor :"#1115",justifyContent : "space-around",alignItems :"center"}}>
                       <Text style={[styles.textoption,{backgroundColor :"#5559",}]}>ارز</Text>
-                    <TouchableOpacity onPress={()=>{props.navigation.navigate('coinScreen')}}>
+                    {/* <TouchableOpacity onPress={()=>{props.navigation.navigate('coinScreen')}}>
                           <Text style={[styles.textoption,{backgroundColor :"#5553",}]}>طلا سکه</Text>
                     </TouchableOpacity>  
                     <TouchableOpacity onPress={()=>{props.navigation.navigate('carScreen')}}>
                           <Text style={[styles.textoption,{backgroundColor :"#5553",}]}>خودرو</Text>
-                    </TouchableOpacity>   
+                    </TouchableOpacity>    */}
                     <TouchableOpacity onPress={()=>{props.navigation.navigate('FiScreen')}}>
                           <Text style={[styles.textoption,{backgroundColor :"#5553",}]}>ارز دیجیتال</Text>
                     </TouchableOpacity>      

@@ -58,30 +58,30 @@ setTimeout(() => {
                         style={{}}>
                         <AntDesign name="back" color="#fff" size={25}/>
                     </TouchableOpacity>
-                    <Text style={{color : "#fff",fontSize : 20,margin : 15}}>درباره</Text>
+                    <Text style={{color : "#fff",fontSize : 20,margin : 15}}>ارتباط</Text>
                 </View>
             <ScrollView style={{flex : 1,}}>
                 <View style={{flex : 3,alignItems :"center"}}>
                     <Image resizeMode="contain" style={{width : 150,height : 150}} source={require("../image/rrr.png")}/>
                     <Text style={{fontSize : 25,fontWeight : "600",color : "#fff",alignSelf : "center",marginTop : "2%"}}>یادآوری</Text>
-                    <Text style={{fontSize : 15,fontWeight : "600",color : "#fff",alignSelf : "center"}}>V2.6.1</Text>
+                    <Text style={{fontSize : 15,fontWeight : "600",color : "#fff",alignSelf : "center"}}>V2.7.4</Text>
                 </View>
 
                 <View style={{marginTop : "12%",borderWidth : 3,borderColor : "#fff3",borderRadius  : 10,flex : 6,}}>
                     <Text style={{color : "#fff",fontSize : 15,margin : 5,marginLeft : "5%",textAlign : "center"}}>نظر شما</Text>
                     <TextInput style={{width :"95%",backgroundColor :"#5555",marginBottom : 5,alignSelf : "center",borderRadius : 10,color : "#fff"}} placeholder="نام" placeholderTextColor={"#999"} value={name} onChangeText={(value)=>{setName(value)}}/>
                     <TextInput keyboardType="email-address" style={{width :"95%",backgroundColor :"#5555",marginBottom : 5,alignSelf : "center",borderRadius : 10,color : "#fff"}} placeholder="ایمیل" placeholderTextColor={"#999"} value={email} onChangeText={(value)=>{setEmail(value)}}/>
-                    <Text style={{color : "#fff",marginLeft : 10,fontSize : 10,marginBottom : 5}}>(ایمیل اجباری نیست ) برای دریافت پاسخ ایمیل را وارد کنید</Text>
+                    {/* <Text style={{color : "#fff",marginLeft : 10,fontSize : 10,marginBottom : 5}}>(ایمیل اجباری نیست ) برای دریافت پاسخ ایمیل را وارد کنید</Text> */}
                     <TextInput  numberOfLines={4} style={{width :"95%",backgroundColor :"#5555",alignSelf : "center",borderRadius : 10,color : "#fff"}} placeholder="پیام" placeholderTextColor={"#999"} value={message} onChangeText={(value)=>{setMessege(value)}}/>
                     <TouchableOpacity onPress={()=>{
-                        if (name != ""&&message != "") {
+                        if (name != ""&&message != ""&&email != "") {
                             send(["name " + ": " + name,"email " + ": " + email,"messege " + ": " + message]),
                             setName(""),
                             setEmail(""),
                             setMessege(""),
                             ToastAndroid.show("نظر شما ارسال شد", ToastAndroid.SHORT)
                         }else{
-                            ToastAndroid.show("نام و پیام الزامی است", ToastAndroid.SHORT)
+                            ToastAndroid.show("مقادیر کامل وارد کنید", ToastAndroid.SHORT)
 
                         }
                     }}

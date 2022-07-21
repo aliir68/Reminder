@@ -7,7 +7,7 @@ const TodoHeder = (props) =>{
             <Pressable style={{marginLeft : 25}} onPress={()=> props.navigation.goBack()}>
                 <MaterialIcons name="arrow-back" size={25} color="#603fab"/>
             </Pressable>
-            <Text style={styles.headerText}>Add Todo</Text>
+            <Text style={styles.headerText}>ADD</Text>
         </View>
     )
 }

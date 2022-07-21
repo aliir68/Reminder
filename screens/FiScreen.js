@@ -86,14 +86,15 @@ const Delete =(value,item)=>{
     }
 
 
-console.log(itemm)
+// console.log(itemm)
 // قیمت دلار
 useEffect(()=>{
-    fetch("https://api.codebazan.ir/arz/?type=arz")
+    fetch("https://www.megaweb.ir/api/money")
     .then((res)=> res.json())
     .then((data)=> setDatausd(data))
 
 },[cheng])
+
 
 // کل ارز های دیجیتال
  useEffect(()=>{         
@@ -110,12 +111,15 @@ useEffect(()=>{
             })
  },[])
 
+
 // تبدیل گیومه دلار به نقطه
-let aaa = datausd[datausd.length - 1]
+let aaa = datausd.buy_usd
 try {
-    var usd= aaa.price.replace(",",".")
+    var usd = aaa.price.replace(",",".")
 } catch (error) {    
 }
+// console.log(usd)
+
 
 // سرچ کردن ارز
 if (dataarze != "") {
@@ -158,12 +162,12 @@ function addComma( str ) {
                 <TouchableOpacity onPress={()=>{props.navigation.navigate('FiusdScreen')}}>
                       <Text style={[styles.textoption,{backgroundColor :"#5552",}]}>ارز</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.textoption}  onPress={()=>{props.navigation.navigate('coinScreen')}}>
+                {/* <TouchableOpacity style={styles.textoption}  onPress={()=>{props.navigation.navigate('coinScreen')}}>
                       <Text style={[styles.textoption,{backgroundColor :"#5552",}]}>طلا سکه</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.textoption} onPress={()=>{props.navigation.navigate('carScreen')}}>
+                </TouchableOpacity> */}
+                {/* <TouchableOpacity style={styles.textoption} onPress={()=>{props.navigation.navigate('carScreen')}}>
                       <Text style={[styles.textoption,{backgroundColor :"#5552",}]}>خودرو</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                       <Text style={[styles.textoption,{backgroundColor :"#5559",}]}>ارز دیجیتال</Text>
             </View>
 
@@ -171,11 +175,14 @@ function addComma( str ) {
                    <AdiveryBanner  placementId={placementBanner} bannerSize={Banner}/>
             </View>
             
-            <TouchableOpacity 
-                onPress={()=>{setShowadd(true)}}
-                style={styles.plus}>
-                    <AntDesign name='plus' color="#fff" size={15}/>
-            </TouchableOpacity>
+                {
+                    dataarze != "" ? 
+                    <TouchableOpacity 
+                        onPress={()=>{setShowadd(true)}}
+                        style={styles.plus}>
+                            <AntDesign name='plus' color="#fff" size={15}/>
+                    </TouchableOpacity> :<View/>
+                }
 
             
         {
@@ -236,7 +243,10 @@ function addComma( str ) {
     }}
                                 
     />
-      <Text style={{color : "#fff",fontSize :18,marginLeft : 20,marginRight : 20}}>All</Text>
+     {
+         dataarze != "" ? 
+            <Text style={{color : "#fff",fontSize :18,marginLeft : 20,marginRight : 20}}>All</Text>:<Text></Text>
+     }
 
     <FlatList
               refreshControl={
